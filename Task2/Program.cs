@@ -17,16 +17,22 @@ namespace Task2
             str = string.Empty;
             path = string.Empty;
             if (ConfigurationManager.AppSettings["config"].Equals("console"))
-            { 
+            {
+                Console.WriteLine("Enter string");
                 str = Console.ReadLine();
             }
 
             if (ConfigurationManager.AppSettings["config"].Equals("txt"))
-            { 
+            {
+                Console.WriteLine("Enter path");
                 path = Console.ReadLine();
                 if (File.Exists(path))
                 {
+                    
                     str = File.ReadAllText(path);
+                }else
+                {
+                    Console.WriteLine("Wrong path");
                 }
             }
 		str = str.ToLower();
@@ -35,7 +41,10 @@ namespace Task2
             str = str.Replace(".", "." + System.Environment.NewLine + DateTime.Now.ToString("dd:mm:yy HH:mm:ss:fff"));
             str = str.Replace("?", "?" + System.Environment.NewLine + DateTime.Now.ToString("dd:mm:yy HH:mm:ss:fff"));
             str = str.Replace("!", "!" + System.Environment.NewLine + DateTime.Now.ToString("dd:mm:yy HH:mm:ss:fff"));
-            str = str.Remove(str.TrimEnd().LastIndexOf(Environment.NewLine));
+            if (str.LastIndexOf(Environment.NewLine) > 0)
+            {
+                str = str.Remove(str.TrimEnd().LastIndexOf(Environment.NewLine));
+            }
             Console.WriteLine(str);
           
            
