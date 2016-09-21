@@ -18,7 +18,7 @@ namespace Task2
         public string Config { get; set; }
         private const string EntStr = "Enter String:";
         private const string EntPath = "Enter Path:";
-        private const string WrongPath = "Wrong Path:";
+        private const string WrongPath = "Wrong Path. Try again.";
         private const string NewStr = "New String:";
         private const string ConfigSetting = "config";
         private const string ConfigParamConsole = "console";
